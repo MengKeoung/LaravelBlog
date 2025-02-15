@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-10">
+        <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">    {{ __('Blog - Welcome, ') }}{{ Auth::user()->name }}</div>
                 <div class="card-body">
@@ -12,7 +12,8 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    <div class="mt-3 d-flex justify-content-end">
+                    <div class="mt-3 d-flex justify-content-between">
+                        <a href="{{ route('allblog') }}" class="btn btn-success">All Blogs</a>
                         <a href="{{ route('addblog') }}" class="btn btn-primary">Add Blog</a>
                     </div>    
                 </div>
@@ -78,6 +79,11 @@
             @endforeach
         </tbody>
     </table>
+    <!-- Pagination Links -->
+    <div class="d-flex justify-content-end">
+        {{ $blogs->links('pagination::bootstrap-4') }}
+
+    </div>
         </div>
     </div>
 </div>

@@ -43,7 +43,7 @@ class BlogController extends Controller
 
     public function index()
     {
-        $blogs = Blog::where('post_by', auth()->user()->name)->get();
+        $blogs = Blog::where('post_by', auth()->user()->name)->paginate(5); // Correct pagination
         return view('home', compact('blogs')); // Pass $blogs to the 'home' view
     }
     public function edit($id)
@@ -88,4 +88,13 @@ class BlogController extends Controller
 
         return redirect()->route('home')->with('status', 'Blog post deleted successfully!');
     }
+    public function allblog()
+{
+    // Fetch paginated blogs (5 per page)
+    $blogs = Blog::paginate(10);
+
+    // Pass the blogs variable to the view
+    return view('allblog', compact('blogs'));
+}
+    
 }

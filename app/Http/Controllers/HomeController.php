@@ -37,4 +37,9 @@ class HomeController extends Controller
     {
         return view('editblog');
     }
+    public function allblog()
+    {
+        return view('allblog');
+    }
+
 }

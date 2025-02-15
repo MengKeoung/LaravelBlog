@@ -25,4 +25,4 @@ Route::put('/editblog/{id}', [BlogController::class, 'update'])->name('blog.upda
 
 Route::delete('/deleteblog/{id}', [BlogController::class, 'destroy'])->name('deleteblog');
 
-
+Route::get('/allblog', [BlogController::class, 'allblog'])->name('allblog');
