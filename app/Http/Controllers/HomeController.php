@@ -33,4 +33,8 @@ class HomeController extends Controller
     {
         return view('addblog');
     }
+    public function editblog()
+    {
+        return view('editblog');
+    }
 }

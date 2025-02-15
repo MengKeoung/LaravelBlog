@@ -18,8 +18,6 @@ class CreateBlogsTable extends Migration
             $table->string('title');  // Blog title
             $table->foreignId('category_id')->constrained('categories')->onDelete('cascade');  // Foreign key to categories table
             $table->text('content');  // Content of the blog post
-            $table->timestamp('creation')->nullable();  // Custom creation timestamp
-            $table->timestamp('modified')->nullable();  // Custom modified timestamp
             $table->timestamps();  // created_at and updated_at fields
         });
     }
